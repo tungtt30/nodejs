@@ -14,8 +14,14 @@ app.use(morgan('combined'));
 app.engine('hbs', hbs.engine )
 app.set('view engine', 'hbs');
 app.set("views", path.join(__dirname, '\\resources\\views')); // cách mình tìm đến file, hệ điều hành window
+
 app.get('/', (req, res) => {
   res.render('home');
+})
+
+app.get('/news' , (req, res) => {
+  res.render('news');
+  console.log(res,req)
 })
 
 app.listen(port, () => {
