@@ -9,6 +9,11 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public')))
 //HTTP logger
 app.use(morgan('combined'));
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
 
 //Template engine
 app.engine('hbs', hbs.engine )
@@ -20,8 +25,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/news' , (req, res) => {
-  res.render('news');
-  console.log(res,req)
+  res.render('news');  
+})
+app.get('/search' , (req, res) => {
+  res.render('search');
+})
+app.post('/search' , (req, res) => {
+  res.send('');
+  console.log(req.body)
+  
 })
 
 app.listen(port, () => {
