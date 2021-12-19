@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
-    "beautiful":"prettier --single-quote --tab-width 4 --trailing-comma all --write src/**/*.{js,json,scss}"
+    "beautiful": "prettier --single-quote --tab-width 4 --trailing-comma all --write src/**/*.{js,json,scss}"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,8 @@
   "homepage": "https://github.com/tungtt30/nodejs#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^6.0.2"
+    "express-handlebars": "^6.0.2",
+    "mongoose": "^6.1.2"
   },
   "devDependencies": {
     "husky": "^7.0.4",
