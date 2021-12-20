@@ -24,11 +24,11 @@ app.use(express.json());
 //Template engine
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, '\\resources\\views')); // cách mình tìm đến file, hệ điều hành window
+app.set('views', path.join(__dirname, 'resources','views')); // cách mình tìm đến file, hệ điều hành window
 
 // route init
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`App listening at http://localhost:${port}`);
 });
