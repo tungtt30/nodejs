@@ -6,7 +6,7 @@ class CourseController {
    //[get] /courses/:slug
     show(req, res, next) {
         
-        Course.findOne({ slug:'tpl' }).exec()
+        Course.findOne({ slut: req.params.slug }).exec()
         .then(course => {
                 console.log(course.name)
                 res.render('courses/show', { course: mongooseToObject(course) })
