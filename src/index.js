@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
+var methodOverride = require('method-override')
 const handlebars = require('express-handlebars');
 const hbs = handlebars.create({ extname: '.hbs', helpers: {sum: (a, b) => a+b} });
 const app = express();
@@ -13,6 +14,8 @@ db.connect();
 
 app.use(express.static(path.join(__dirname, 'public')));
 //HTTP logger
+// method override
+app.use(methodOverride('_method'))
 // app.use(morgan('combined'));
 app.use(
     express.urlencoded({

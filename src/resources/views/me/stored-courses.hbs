@@ -9,6 +9,7 @@
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col">Image</th>
+        <th scope="col" colspan="2"></th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,10 @@
         <td>{{this.name}}</td>
         <td>{{this.des}}</td>
         <td><a target="_blank" href="{{this.image}}">{{this.image}}</a></td>
+        <td>
+            <a href="/courses/{{this._id}}/edit" class="btn btn-link">Modify</a>
+            <a href="/courses" class="btn btn-link">Delete</a>
+        </td>
         </tr>
         {{/each}}
     </tbody>
