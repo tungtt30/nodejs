@@ -1,0 +1,24 @@
+<div class="container">
+<div class="mt-4">
+    <div class="row">
+
+        {{#each courses}}
+        <div class="col-sm-6 col-lg-4">
+            <div class="card card-course-item">
+                <a href="/courses/{{this.slut}}">
+                <img src="{{this.image}}" alt="Card" class="card-img-top">
+                </a>
+                <div class="card-body">
+                   <a href="/courses/{{this.slut}}"> <h5 class="card-title">{{this.name}}</h5></a>
+                    <p class="card-text">{{this.des}}</p>
+                    <a href="/courses/{{this.slut}}" class="btn btn-primary">Learn</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+</div>
+</div>
+

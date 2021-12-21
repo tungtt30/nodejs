@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
-const hbs = handlebars.create({ extname: '.hbs' });
+const hbs = handlebars.create({ extname: '.hbs', helpers: {sum: (a, b) => a+b} });
 const app = express();
 const port = 3000;
 const route = require('./routes');
@@ -24,7 +24,7 @@ app.use(express.json());
 //Template engine
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources','views')); // cách mình tìm đến file, hệ điều hành window
+app.set('views', path.join(__dirname, 'resources', 'views')); // cách mình tìm đến file, hệ điều hành window
 
 // route init
 route(app);
