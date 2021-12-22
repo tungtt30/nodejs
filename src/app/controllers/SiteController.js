@@ -5,7 +5,7 @@ class SiteController {
     //[GET] /Site
 
     home(req, res, next) {
-        res.render('home')
+        res.render('home');
     }
     index(req, res, next) {
         Course.find({})
@@ -15,8 +15,6 @@ class SiteController {
                 });
             })
             .catch(next);
-
-        
     }
 
     // [GET] /search

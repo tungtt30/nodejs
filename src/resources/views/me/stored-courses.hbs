@@ -21,7 +21,7 @@
         <td><a target="_blank" href="{{this.image}}">{{this.image}}</a></td>
         <td>
             <a href="/courses/{{this._id}}/edit" class="btn btn-link">Modify</a>
-            <a href="/courses" class="btn btn-link">Delete</a>
+            <a href="/courses/" id="deleteModalbtn" class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#deleteModal">Delete</a>
         </td>
         </tr>
         {{/each}}
@@ -30,3 +30,44 @@
 
 </div>
 </div>
+
+{{!-- confirm delete--}} 
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete course</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure ???
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete" type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- delete form --}}
+<form name='delete-form' method="POST"></form>
+
+<script>
+    var deleteForm = document.forms['delete-form'];
+    var deleteModal = document.getElementById('deleteModal')
+    deleteModal.addEventListener('show.bs.modal', function (event) {
+ 
+  var button = event.relatedTarget
+ 
+  var id = button.getAttribute('data-id')
+  console.log(id)
+    var btnDelete = document.getElementById('btn-delete')
+    btnDelete.onclick = () => {
+        deleteForm.action = '/courses/' + id + '?_method=DELETE';
+        deleteForm.submit();
+    }
+})
+</script>
