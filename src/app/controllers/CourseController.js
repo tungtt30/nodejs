@@ -42,10 +42,10 @@ class CourseController {
             .catch(next);
     }
     //[delete] /courses/:id
-    delete(req, res, next ) {
-        Course.deleteOne({ _id: req.params.id })
-        .then(() => res.redirect('back'))
-        .catch(next)
+    delete(req, res, next) {
+        Course.delete({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
     }
 }
 
