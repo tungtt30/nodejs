@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //HTTP logger
 // method override
 app.use(methodOverride('_method'));
-app.use(morgan('tiny')); //combined
+// app.use(morgan('tiny')); //combined
 app.use(
     express.urlencoded({
         extended: true,

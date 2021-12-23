@@ -23,7 +23,7 @@
         <td>{{this.des}}</td>
         <td><a target="_blank" href="{{this.image}}">{{this.image}}</a></td>
         <td>
-            <a href="/courses/{{this._id}}/edit" class="btn btn-link">Modify</a>
+            <a href="" class="btn btn-link btn-restore" data-id="{{this._id}}">Restore</a>
             <a href="/courses/" id="deleteModalbtn" class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#deleteModal">Delete</a>
         </td>
         </tr>
@@ -52,7 +52,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure ???
+        Are you sure about that ???
       </div>
       <div class="modal-footer">
         <button id="btn-delete" type="button" class="btn btn-danger">Delete</button>
@@ -63,19 +63,31 @@
 </div>
 {{!-- delete form --}}
 <form name='delete-form' method="POST"></form>
+<form name='restore-form' method="POST"></form>
+
 
 <script>
     var deleteForm = document.forms['delete-form'];
+    var restoreForm = document.forms['restore-form'];
     var deleteModal = document.getElementById('deleteModal')
-    deleteModal.addEventListener('show.bs.modal', function (event) {
- 
+    var restore = document.querySelectorAll('.btn-restore')
+    
+    for (var i = 0; i < restore.length ; i++) {
+        var btnRestore = document.getElementById('btn-restore')
+        restore[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            var courseId = e.target.getAttribute('data-id')
+            restoreForm.action = '/courses/' + courseId + '/restore?_method=PATCH';
+            restoreForm.submit();
+        })
+    }
+    
+  deleteModal.addEventListener('show.bs.modal', function (event) {
   var button = event.relatedTarget
- 
   var id = button.getAttribute('data-id')
-  console.log(id)
-    var btnDelete = document.getElementById('btn-delete')
+  var btnDelete = document.getElementById('btn-delete')
     btnDelete.onclick = () => {
-        deleteForm.action = '/courses/' + id + '?_method=DELETE';
+        deleteForm.action = '/courses/' + id + '/force?_method=DELETE';
         deleteForm.submit();
     }
 })
