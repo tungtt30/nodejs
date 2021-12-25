@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //HTTP logger
 // method override
 app.use(methodOverride('_method'));
-// app.use(morgan('tiny')); //combined
+app.use(morgan('tiny')); //combined
 app.use(
     express.urlencoded({
         extended: true,
@@ -35,6 +35,6 @@ app.set('views', path.join(__dirname, 'resources', 'views')); // cách mình tì
 // route init
 route(app);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
 });
