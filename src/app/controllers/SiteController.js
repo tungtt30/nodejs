@@ -7,6 +7,9 @@ class SiteController {
     home(req, res, next) {
         res.render('home');
     }
+    mp3(req, res, next) {
+        res.render('mp3');
+    }
     index(req, res, next) {
         Course.find({})
             .then((courses) => {
