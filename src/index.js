@@ -31,7 +31,22 @@ app.use(express.json());
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views')); // cách mình tìm đến file, hệ điều hành window
+//----------
 
+app.get("/middle",
+    function(req, res, next) {
+        if(['vethuong', 'vevip'].includes(req.query.ve)) {
+            req.face = "///"
+           return next();
+        }
+        res.status(403).json({message: "oc cho"})
+}, 
+    function(req, res, next) {
+    res.json({
+        message: 'helo',
+        face: req.face
+    })
+})
 // route init
 route(app);
 
