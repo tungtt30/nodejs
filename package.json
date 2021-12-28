@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tungtt30/nodejs#readme",
   "dependencies": {
+    "bootstrap-icons": "^1.7.2",
     "express": "^4.17.1",
     "express-handlebars": "^6.0.2",
     "method-override": "^3.0.0",

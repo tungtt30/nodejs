@@ -22,26 +22,35 @@
 <table class="table">
     <thead>
         <tr>
-        <th scope="col" colspan="2">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Image</th>
-        <th scope="col" colspan="2">Action</th>
+        <th scope="col" >#</th>
+        <th scope="col" >STT </th>
+
+        <th scope="col"colspan="2" >
+          Name 
+         {{{sortable 'name' _sort}}}
+        </th>
+        <th scope="col" >Description
+          {{{sortable 'des' _sort}}}
+        </th>
+        <th scope="col" colspan="1" >Image
+          {{{sortable 'image' _sort}}}
+        </th>
+        <th scope="col" >Action</th>
         </tr>
     </thead>
     <tbody>
         {{#each courses}}
         <tr>
-          <td>
+          <td >
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="courseIds[]" value="{{this._id}}">
               </div>
           </td>
-        <th scope="row">{{sum @index 1}}</th>
-        <td>{{this.name}}</td>
-        <td>{{this.des}}</td>
-        <td><a target="_blank" href="{{this.image}}">{{this.image}}</a></td>
-        <td>
+        <th scope="row" >{{sum @index 1}}</th>
+        <td colspan="2" >{{this.name}}</td>
+        <td >{{this.des}}</td>
+        <td colspan="1"><a target="_blank" href="{{this.image}}">{{this.image}}</a></td>
+        <td >
             <a href="/courses/{{this._id}}/edit" class="btn btn-link">Modify</a>
             <a href="/courses/" id="deleteModalbtn" class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#deleteModal">Delete</a>
         </td>
