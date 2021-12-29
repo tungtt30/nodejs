@@ -23,7 +23,9 @@
     <thead>
         <tr>
         <th scope="col" >#</th>
-        <th scope="col" >STT </th>
+        <th scope="col" >ID 
+           {{{sortable '_id' _sort}}}
+        </th>
 
         <th scope="col"colspan="2" >
           Name 
@@ -46,8 +48,10 @@
                 <input class="form-check-input" type="checkbox" name="courseIds[]" value="{{this._id}}">
               </div>
           </td>
-        <th scope="row" >{{sum @index 1}}</th>
+        
+        <th scope="row" >{{this._id}}</th>
         <td colspan="2" >{{this.name}}</td>
+
         <td >{{this.des}}</td>
         <td colspan="1"><a target="_blank" href="{{this.image}}">{{this.image}}</a></td>
         <td >
